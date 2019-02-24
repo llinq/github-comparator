@@ -11,19 +11,21 @@ import { RepositoryInfoModel } from '../models/repository-info.model';
 	providedIn: 'root',
 })
 export class GithubService {
+	api = 'http://www.llnqlab.com/api';
+
 	constructor(
 		private http: HttpClient,
 		private router: Router
 	) { }
 
 	search(filter: string): Observable<RepositoryInfoModel[]> {
-		return this.http.get<RepositoryInfoModel[]>(`http://localhost:9462/api/comparator/search/${filter}`, {
+		return this.http.get<RepositoryInfoModel[]>(`${this.api}/comparator/search/${filter}`, {
 			headers: new HttpHeaders().set('Content-Type', 'application/json')
 		});
 	}
 
 	compare(request: CompareRequestModel[]): Observable<any> {
-		return this.http.post('http://localhost:9462/api/comparator/compare', request, {
+		return this.http.post(`${this.api}/comparator/compare`, request, {
 			headers: new HttpHeaders().set('Content-Type', 'application/json')
 		});
 	}
