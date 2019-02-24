@@ -1,2 +1,2 @@
 # github-comparator
-Site criado com intuíto de aprendizado com Angular 7 e Web API 2 (c#). O site tem a função de comparar dois repositórios do github, inicialmente compara número de Estrelas, Contribuidores e Forks.
+Website created with learning intuition with Angular 7 and Web API 2 (c #). The site has the function of comparing two repositories of github, initially comparing number of Stars, Contributors and Forks.
