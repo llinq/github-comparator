@@ -11,7 +11,7 @@ import { RepositoryInfoModel } from '../models/repository-info.model';
 	providedIn: 'root',
 })
 export class GithubService {
-	api = 'http://www.llnqlab.com/api';
+	api = 'http://www.llnqlab.com:90/api';
 
 	constructor(
 		private http: HttpClient,
