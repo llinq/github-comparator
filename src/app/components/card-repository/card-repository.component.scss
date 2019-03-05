@@ -41,10 +41,12 @@
 	}
 	
 	mat-card-subtitle {
-		height: 50px;
-		max-height: 50px;
-		min-height: 50px;
+		height: 60px;
+		max-height: 60px;
+		min-height: 60px;
 		overflow: hidden;
+		word-break: break-word;
+		line-height: 20px;
 	}
 	
 	.green {

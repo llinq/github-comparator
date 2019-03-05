@@ -13,8 +13,8 @@ import * as _ from 'lodash';
 	providedIn: 'root',
 })
 export class GithubService {
-	// api = 'http://www.llnqlab.com:90/api';
-	api = 'http://localhost:9462/api';
+	api = 'http://www.llnqlab.com:90/api';
+	// api = 'http://localhost:9462/api';
 
 	constructor(
 		private http: HttpClient,

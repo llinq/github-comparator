@@ -31,9 +31,9 @@ export class ComparatorComponent implements OnInit {
 		}
 		else {
 			// this.router.navigate(['/']);
-			this.repo1 = {"name":"react","description":"A declarative, efficient, and flexible JavaScript library for building user interfaces.","stars":{"value":123624,"differ":-5970,"type":2},"forks":{"value":22452,"differ":3958,"type":1},"contributors":{"value":443,"differ":179,"type":1}};
+			this.repo1 = {"name":"lantern","description":"🔴蓝灯最新版本下载 https://github.com/getlantern/download 🔴 Lantern Latest Download https://github.com/getlantern/download 🔴","stars":{"value":40620,"differ":40620,"type":1},"forks":{"value":8957,"differ":8957,"type":1},"contributors":{"value":54,"differ":54,"type":1}};
 
-			this.repo2 = {"name":"vue","description":"🖖 Vue.js is a progressive, incrementally-adoptable JavaScript framework for building UI on the web.","stars":{"value":129594,"differ":5970,"type":1},"forks":{"value":18494,"differ":-3958,"type":2},"contributors":{"value":264,"differ":-179,"type":2}};
+			this.repo2 = {"name":"test","description":"asadd","stars":{"value":0,"differ":-40620,"type":2},"forks":{"value":0,"differ":-8957,"type":2},"contributors":{"value":0,"differ":-54,"type":2}};
 		}
 
 	}
