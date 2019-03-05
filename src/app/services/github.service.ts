@@ -8,27 +8,25 @@ import { RepositoryInfoModel } from '../models/repository-info.model';
 import { CompareResponseModel } from '../models/compare-response.model';
 import { KeyValueModel } from '../models/key-value.model';
 import * as _ from 'lodash';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class GithubService {
-	api = 'http://www.llnqlab.com:90/api';
-	// api = 'http://localhost:9462/api';
-
 	constructor(
 		private http: HttpClient,
 		private router: Router
 	) { }
 
 	search(filter: string): Observable<RepositoryInfoModel[]> {
-		return this.http.get<RepositoryInfoModel[]>(`${this.api}/comparator/search/${filter}`, {
+		return this.http.get<RepositoryInfoModel[]>(`${environment.api}/comparator/search/${filter}`, {
 			headers: new HttpHeaders().set('Content-Type', 'application/json')
 		});
 	}
 
 	compare(request: CompareRequestModel[]): Observable<CompareResponseModel[]> {
-		return this.http.post<CompareResponseModel[]>(`${this.api}/comparator/compare`, request, {
+		return this.http.post<CompareResponseModel[]>(`${environment.api}/comparator/compare`, request, {
 			headers: new HttpHeaders().set('Content-Type', 'application/json')
 		});
 	}

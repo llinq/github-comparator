@@ -6,7 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
-    { path: 'comparator', component: ComparatorComponent },
+	{ path: 'comparator', component: ComparatorComponent },
+	{ path: '**', component: HomeComponent }
 ];
 
 @NgModule({
