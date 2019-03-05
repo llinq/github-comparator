@@ -12,12 +12,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GithubInterceptor } from './interceptors/github.interceptor';
 import { ComparatorComponent } from './pages/comparator/comparator.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CardRepositoryComponent } from './components/card-repository/card-repository.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ComparatorComponent,
-    HomeComponent
+    HomeComponent,
+    CardRepositoryComponent
   ],
   imports: [
     BrowserModule,

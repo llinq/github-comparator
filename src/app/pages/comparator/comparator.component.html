@@ -1,3 +1,17 @@
-<p>
-  comparator works!
-</p>
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+
+	<div fxFlex fxLayout="row wrap" fxFill fxLayoutAlign="center center">
+
+		<card-repository [repository]="repo1" fxFlex="20%" fxFlex.md="20%" fxFlex.sm="40%" fxFlex.xs="75%" fxLayout="column"></card-repository>
+
+		<card-repository [repository]="repo2" fxFlex="20%" fxFlex.md="20%" fxFlex.sm="40%" fxFlex.xs="75%" fxLayout="column"></card-repository>
+
+		<div fxFlex="100%" fxLayoutAlign="center center">
+			<button mat-stroked-button [routerLink]="['/']">
+				GO TO HOME
+			</button>
+		</div>
+
+	</div>
+
+</div>

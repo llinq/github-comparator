@@ -1,0 +1,80 @@
+:host {
+	margin: 15px;
+
+	.example-card {
+		max-width: 400px;
+	}
+	
+	.example-header-image {
+		background-image: url('/assets/images/git-cat.png');
+		background-size: cover;
+	}
+	
+	.mat-card {
+		padding: 10px !important;
+	}
+	
+	mat-card-content {
+		label {
+			font-size: 12px;
+	
+			p {
+				width: 55px;
+				font-weight: bold;
+				margin: 0px 16px;
+			}
+	
+			small {
+				font-weight: bold;
+			}
+		}
+	
+		&>div {
+			&> mat-icon {
+				max-width: 40px !important;
+				min-width: 40px;
+				width: 40px;
+				color: cadetblue;
+				text-align: center;
+			}
+		}
+	}
+	
+	mat-card-subtitle {
+		height: 50px;
+		max-height: 50px;
+		min-height: 50px;
+		overflow: hidden;
+	}
+	
+	.green {
+	
+		mat-icon,
+		label,
+		small {
+			color: green !important;
+		}
+		
+	}
+	
+	.red {
+	
+		mat-icon,
+		label,
+		small {
+			color: red !important;
+		}
+	
+	}
+	
+	.blue {
+	
+		mat-icon,
+		label,
+		small {
+			color: blue !important;
+		}
+	
+	}
+}
+

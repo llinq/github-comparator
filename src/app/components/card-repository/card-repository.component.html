@@ -1,0 +1,94 @@
+<mat-card>
+
+	<mat-card-header fxLayoutAlign="center center">
+
+		<div mat-card-avatar class="example-header-image"></div>
+
+		<mat-card-title>
+			{{repository.name}}
+		</mat-card-title>
+
+		<mat-card-subtitle>
+			{{repository.description}}
+		</mat-card-subtitle>
+
+	</mat-card-header>
+
+	<mat-card-content fxLayout="column">
+
+		<div fxLayoutAlign="start center" fxLayout="row">
+
+			<mat-icon fxFlex="15%">
+				star
+			</mat-icon>
+
+			<label fxFlex="85%" fxLayoutAlign="start center">
+
+				<p>
+					{{ repository.stars.value | number }}
+				</p>
+
+				<div *ngIf="repository.stars.differ != 0" fxLayoutAlign="center center" [ngClass]="conditionColorStars">
+					<mat-icon>
+						{{repository.stars.differ > 0 ? 'arrow_drop_up' : 'arrow_drop_down' }}
+					</mat-icon>
+					<small>
+						{{ repository.stars.differ | number }}
+					</small>
+				</div>
+
+			</label>
+		</div>
+
+		<div fxLayoutAlign="start center" fxLayout="row">
+
+			<mat-icon fxFlex="15%">
+				people
+			</mat-icon>
+
+			<label fxFlex="85%" fxLayoutAlign="start center">
+
+				<p>
+					{{ repository.contributors.value | number }}
+				</p>
+
+				<div *ngIf="repository.contributors.differ != 0" fxLayoutAlign="center center" [ngClass]="conditionColorContributors">
+					<mat-icon>
+						{{repository.contributors.differ > 0 ? 'arrow_drop_up' : 'arrow_drop_down' }}
+					</mat-icon>
+					<small>
+						{{ repository.contributors.differ | number }}
+					</small>
+				</div>
+
+
+			</label>
+		</div>
+
+		<div fxLayoutAlign="start center" fxLayout="row">
+
+			<mat-icon fxFlex="15%">
+				call_split
+			</mat-icon>
+
+			<label fxFlex="85%" fxLayoutAlign="start center" [ngClass]="conditionColorForks">
+
+				<p>
+					{{ repository.forks.value | number }}
+				</p>
+
+				<div *ngIf="repository.forks.differ != 0" fxLayoutAlign="center center">
+					<mat-icon>
+						{{repository.forks.differ > 0 ? 'arrow_drop_up' : 'arrow_drop_down'}}
+					</mat-icon>
+					<small>
+						{{ repository.forks.differ | number }}
+					</small>
+				</div>
+
+			</label>
+		</div>
+
+	</mat-card-content>
+
+</mat-card>

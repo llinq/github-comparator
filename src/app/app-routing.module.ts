@@ -1,3 +1,4 @@
+import { CompareResponseModel } from './models/compare-response.model';
 import { ComparatorComponent } from './pages/comparator/comparator.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';

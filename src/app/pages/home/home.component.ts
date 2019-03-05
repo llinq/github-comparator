@@ -5,11 +5,13 @@ import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 import { GithubService } from 'src/app/services/github.service';
 import { CustomProgressBarService } from 'src/app/components/custom-progress-bar/custom-progress-bar.service';
 import { CompareRequestModel } from 'src/app/models/compare-request.model';
+import { Router, NavigationExtras } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss', '../../app.component.scss']
 })
 export class HomeComponent implements OnInit {
 
@@ -29,7 +31,8 @@ export class HomeComponent implements OnInit {
 	constructor(
 		private githubService: GithubService,
 		private formBuilder: FormBuilder,
-		private customProgressbarService: CustomProgressBarService
+		private router: Router,
+		private dataService: DataService
 	) { }
 
 	ngOnInit(): void {
@@ -120,6 +123,13 @@ export class HomeComponent implements OnInit {
 			)
 			.subscribe((response) => {
 				console.log(response);
+
+				const converter = this.githubService.convert(response[0], response[1]);
+
+				this.dataService.repo1 = converter.find(c => c.key === 'repo1').value;
+				this.dataService.repo2 = converter.find(c => c.key === 'repo2').value;
+
+				this.router.navigate(['comparator']);
 			});
 	}
 }

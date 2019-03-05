@@ -1,11 +1,24 @@
-.container {
-	height: 100%;
-	width: 100%;
-	background: #efefef;
-	// background-image: "assets/backgrounds/wallpaper2.jpg";
-  }
-
   .is-loading ::ng-deep .mat-option-text {
 	display: flex;
 	justify-content: center;
+  }
+
+  h2 {
+	margin-top: 0px;
+  }
+
+  mat-card {
+	height: 315px;
+  }
+
+  mat-form-field {
+	  font-size: 12px;
+
+	&.repo2 {
+		margin-bottom: -1.25em;
+	}
+  }
+
+  button {
+	margin-top: 1.25em;
   }
