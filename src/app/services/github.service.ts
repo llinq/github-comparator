@@ -1,7 +1,8 @@
+import { CustomEncoderHelper } from './../helpers/custom-encoder.helper';
 import { RepositoryModel, RepositoryValueEnumModel, RepositoryValueModel } from './../models/repository.model';
 import { CompareRequestModel } from './../models/compare-request.model';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { RepositoryInfoModel } from '../models/repository-info.model';
@@ -20,15 +21,20 @@ export class GithubService {
 	) { }
 
 	search(filter: string): Observable<RepositoryInfoModel[]> {
-		return this.http.get<RepositoryInfoModel[]>(`${environment.api}/comparator/search/${filter}`, {
-			headers: new HttpHeaders().set('Content-Type', 'application/json')
+
+		let params = new HttpParams({
+			encoder: new CustomEncoderHelper()
+		});
+
+		params = params.set('filter', filter);
+
+		return this.http.get<RepositoryInfoModel[]>(`${environment.api}/comparator/search`, {
+			params: params
 		});
 	}
 
 	compare(request: CompareRequestModel[]): Observable<CompareResponseModel[]> {
-		return this.http.post<CompareResponseModel[]>(`${environment.api}/comparator/compare`, request, {
-			headers: new HttpHeaders().set('Content-Type', 'application/json')
-		});
+		return this.http.post<CompareResponseModel[]>(`${environment.api}/comparator/compare`, request);
 	}
 
 	convert(repo1: CompareResponseModel, repo2: CompareResponseModel): KeyValueModel<string, RepositoryModel>[] {
@@ -65,7 +71,7 @@ export class GithubService {
 
 		let response1 = new KeyValueModel<string, RepositoryValueModel>(
 			'repo1',
-			<RepositoryValueModel> {
+			<RepositoryValueModel>{
 				value: value1,
 				differ: value1 - value2
 			}
@@ -73,7 +79,7 @@ export class GithubService {
 
 		let response2 = new KeyValueModel<string, RepositoryValueModel>(
 			'repo2',
-			<RepositoryValueModel> {
+			<RepositoryValueModel>{
 				value: value2,
 				differ: value2 - value1
 			}
